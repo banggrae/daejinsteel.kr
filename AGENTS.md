@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Company contact details and nav items live only in `src/lib/company.ts`; every phone link uses `telHref()` so mobile taps dial directly.
+- Product catalog content is static in `src/lib/products.ts` (one entry per category = one `/products/$slug` page); notices come from the `notices` table so the owner can add posts without code changes.
+- Quote inquiries are validated by the shared zod schema in `src/lib/inquiry-schema.ts` on both client and server, and inserted server-side only (no anon access to `quote_inquiries`).
